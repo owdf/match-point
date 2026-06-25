@@ -12,6 +12,10 @@
 
 <br />
 
+<a href="README_EN.md">English</a>
+
+<br />
+
 <p>
   <a href="#-功能亮点">功能亮点</a> ·
   <a href="#-快速开始">快速开始</a> ·

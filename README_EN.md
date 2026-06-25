@@ -12,6 +12,10 @@
 
 <br />
 
+<a href="README.md">中文</a>
+
+<br />
+
 <p>
   <a href="#what-it-is">What It Is</a> ·
   <a href="#features">Features</a> ·
