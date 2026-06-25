@@ -1,0 +1,61 @@
+// uni.scss 会被 HBuilderX 注入到各页面样式中，避免在这里使用相对 @import。
+$app-bg: #F7F4EA;
+$surface: #FFFFFF;
+$surface-soft: #FBFAF4;
+$text-main: #172121;
+$text-secondary: #64706D;
+$text-muted: #9AA3A0;
+$border: #E4DED0;
+$primary: #0F5C5C;
+$primary-dark: #073F3F;
+$success: #0F766E;
+$warning: #D97706;
+$danger: #DC2626;
+
+$uni-color-primary: $primary;
+$uni-color-success: $success;
+$uni-color-warning: $warning;
+$uni-color-error: $danger;
+
+$uni-text-color: $text-main;
+$uni-text-color-inverse: #FFFFFF;
+$uni-text-color-grey: $text-secondary;
+$uni-text-color-placeholder: $text-muted;
+$uni-text-color-disable: #CBD5E1;
+
+$uni-bg-color: $surface;
+$uni-bg-color-grey: $app-bg;
+$uni-bg-color-hover: #EEF2F7;
+$uni-bg-color-mask: rgba(17, 24, 39, 0.42);
+
+$uni-border-color: $border;
+
+$uni-font-size-sm: 12px;
+$uni-font-size-base: 14px;
+$uni-font-size-lg: 16px;
+
+$uni-img-size-sm: 20px;
+$uni-img-size-base: 26px;
+$uni-img-size-lg: 40px;
+
+$uni-border-radius-sm: 6rpx;
+$uni-border-radius-base: 12rpx;
+$uni-border-radius-lg: 18rpx;
+$uni-border-radius-circle: 50%;
+
+$uni-spacing-row-sm: 8rpx;
+$uni-spacing-row-base: 16rpx;
+$uni-spacing-row-lg: 24rpx;
+
+$uni-spacing-col-sm: 8rpx;
+$uni-spacing-col-base: 16rpx;
+$uni-spacing-col-lg: 24rpx;
+
+$uni-opacity-disabled: 0.35;
+
+$uni-color-title: $text-main;
+$uni-font-size-title: 20px;
+$uni-color-subtitle: $text-secondary;
+$uni-font-size-subtitle: 16px;
+$uni-color-paragraph: #374151;
+$uni-font-size-paragraph: 15px;

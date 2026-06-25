@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build output
+unpackage/
+*.apk
+
+# IDE
+.hbuilderx/
+
+# AI tooling temp
+.codex_tmp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env & logs
+.env*
+*.log
+
+# Editor swap files
+*.swp
+*.swo

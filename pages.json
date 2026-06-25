@@ -1,0 +1,133 @@
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      "style": {
+        "navigationBarTitleText": "Match Point赛点"
+      }
+    },
+    {
+      "path": "pages/tools/time-calc",
+      "style": {
+        "navigationBarTitleText": "时间计算"
+      }
+    },
+    {
+      "path": "pages/tools/index",
+      "style": {
+        "navigationBarTitleText": "工具"
+      }
+    },
+    {
+      "path": "pages/check/precheck",
+      "style": {
+        "navigationBarTitleText": "赛前检查"
+      }
+    },
+    {
+      "path": "pages/template/list",
+      "style": {
+        "navigationBarTitleText": "模板选择"
+      }
+    },
+    {
+      "path": "pages/template/edit",
+      "style": {
+        "navigationBarTitleText": "模板编辑"
+      }
+    },
+    {
+      "path": "pages/training/timer",
+      "style": {
+        "navigationBarTitleText": "训练计时"
+      }
+    },
+    {
+      "path": "pages/training/checklist",
+      "style": {
+        "navigationBarTitleText": "任务清单"
+      }
+    },
+    {
+      "path": "pages/training/score",
+      "style": {
+        "navigationBarTitleText": "自评打分"
+      }
+    },
+    {
+      "path": "pages/training/report",
+      "style": {
+        "navigationBarTitleText": "训练报告"
+      }
+    },
+    {
+      "path": "pages/training/fullscreen",
+      "style": {
+        "navigationBarTitleText": "全屏计时"
+      }
+    },
+    {
+      "path": "pages/history/list",
+      "style": {
+        "navigationBarTitleText": "历史记录"
+      }
+    },
+    {
+      "path": "pages/history/detail",
+      "style": {
+        "navigationBarTitleText": "训练详情"
+      }
+    },
+    {
+      "path": "pages/statistics/index",
+      "style": {
+        "navigationBarTitleText": "统计分析"
+      }
+    },
+    {
+      "path": "pages/settings/backup",
+      "style": {
+        "navigationBarTitleText": "数据备份"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Match Point赛点",
+    "navigationBarBackgroundColor": "#F7F4EA",
+    "backgroundColor": "#F7F4EA"
+  },
+  "tabBar": {
+    "color": "#9AA3A0",
+    "selectedColor": "#0F5C5C",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tabbar/home.png",
+        "selectedIconPath": "static/tabbar/home-active.png"
+      },
+      {
+        "pagePath": "pages/template/list",
+        "text": "训练",
+        "iconPath": "static/tabbar/train.png",
+        "selectedIconPath": "static/tabbar/train-active.png"
+      },
+      {
+        "pagePath": "pages/history/list",
+        "text": "记录",
+        "iconPath": "static/tabbar/record.png",
+        "selectedIconPath": "static/tabbar/record-active.png"
+      },
+      {
+        "pagePath": "pages/tools/index",
+        "text": "工具",
+        "iconPath": "static/tabbar/tools.png",
+        "selectedIconPath": "static/tabbar/tools-active.png"
+      }
+    ]
+  },
+  "uniIdRouter": {}
+}

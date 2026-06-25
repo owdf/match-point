@@ -1,0 +1,447 @@
+@import "./theme.scss";
+
+page {
+  min-height: 100%;
+  background: $app-bg;
+  color: $text-main;
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Helvetica Neue", Helvetica, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+}
+
+view,
+text,
+input,
+textarea,
+button {
+  box-sizing: border-box;
+}
+
+button {
+  margin: 0;
+  padding: 0;
+  border-radius: $radius-pill;
+  background: transparent;
+  font-weight: 650;
+  line-height: 1;
+}
+
+button::after {
+  border: none;
+}
+
+input,
+textarea {
+  color: $text-main;
+  font-size: 28rpx;
+}
+
+.app-page {
+  min-height: 100vh;
+  padding: 36rpx $page-padding 128rpx;
+  background: $app-bg;
+}
+
+.app-bottom-space {
+  height: 96rpx;
+}
+
+.app-topbar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24rpx;
+  margin-bottom: 28rpx;
+}
+
+.app-title,
+.app-page-title {
+  display: block;
+  font-size: 44rpx;
+  line-height: 1.18;
+  font-weight: 780;
+  color: $text-main;
+}
+
+.app-subtitle,
+.app-page-desc {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  line-height: 1.5;
+  color: $text-secondary;
+}
+
+.app-dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14rpx;
+}
+
+.app-metric {
+  min-width: 0;
+  padding: 24rpx 20rpx;
+  border: 1rpx solid $border;
+  border-radius: $radius-lg;
+  background: $surface;
+  box-shadow: $shadow-card;
+}
+
+.app-metric-value {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 38rpx;
+  line-height: 1.12;
+  font-weight: 780;
+  color: $primary-dark;
+}
+
+.app-metric-label {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 22rpx;
+  line-height: 1.35;
+  color: $text-secondary;
+}
+
+.app-primary-card {
+  padding: 34rpx 32rpx;
+  border-radius: $radius-xl;
+  background: $primary;
+  color: $text-inverse;
+  box-shadow: $shadow-soft;
+}
+
+.app-surface-card {
+  padding: 28rpx;
+  border: 1rpx solid $border;
+  border-radius: $radius-lg;
+  background: $surface;
+  box-shadow: $shadow-card;
+}
+
+.app-list {
+  overflow: hidden;
+  border: 1rpx solid $border;
+  border-radius: $radius-lg;
+  background: $surface;
+}
+
+.app-list-item,
+.app-list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 112rpx;
+  padding: 24rpx 26rpx;
+  border-bottom: 1rpx solid $border;
+}
+
+.app-list-item:last-child,
+.app-list-row:last-child {
+  border-bottom: none;
+}
+
+.app-row-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.app-row-title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 29rpx;
+  line-height: 1.35;
+  font-weight: 680;
+  color: $text-main;
+}
+
+.app-row-desc {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  line-height: 1.45;
+  color: $text-secondary;
+}
+
+.app-row-extra {
+  flex-shrink: 0;
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  color: $text-muted;
+}
+
+.app-arrow {
+  margin-left: 18rpx;
+  font-size: 40rpx;
+  line-height: 1;
+  color: $text-muted;
+}
+
+.app-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44rpx;
+  padding: 0 18rpx;
+  border-radius: $radius-pill;
+  background: $primary-soft;
+  color: $primary-dark;
+  font-size: 22rpx;
+  font-weight: 650;
+}
+
+.app-chip-active {
+  background: $primary;
+  color: $text-inverse;
+}
+
+.app-chip-gold {
+  background: $gold-soft;
+  color: #7A570F;
+}
+
+.app-chip-danger {
+  background: #FEE2E2;
+  color: $danger;
+}
+
+.app-progress {
+  width: 100%;
+  height: 12rpx;
+  border-radius: $radius-pill;
+  background: rgba(15, 92, 92, 0.12);
+  overflow: hidden;
+}
+
+.app-progress-inner {
+  height: 100%;
+  border-radius: $radius-pill;
+  background: $primary;
+}
+
+.app-progress-inner-gold {
+  height: 100%;
+  border-radius: $radius-pill;
+  background: $gold;
+}
+
+.app-button-primary,
+.app-button-secondary,
+.app-button-danger,
+.app-primary-btn,
+.app-secondary-btn,
+.app-danger-btn {
+  height: 88rpx;
+  line-height: 88rpx;
+  padding: 0 28rpx;
+  border-radius: $radius-pill;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.app-button-primary,
+.app-primary-btn {
+  background: $primary;
+  color: $text-inverse;
+}
+
+.app-button-secondary,
+.app-secondary-btn {
+  border: 1rpx solid $border-strong;
+  background: $surface;
+  color: $primary-dark;
+}
+
+.app-button-danger,
+.app-danger-btn {
+  border: 1rpx solid rgba(220, 38, 38, 0.26);
+  background: $surface;
+  color: $danger;
+}
+
+.app-input,
+.app-textarea {
+  width: 100%;
+  border: 1rpx solid $border;
+  border-radius: $radius-md;
+  background: $surface;
+  color: $text-main;
+}
+
+.app-input {
+  height: 88rpx;
+  padding: 0 26rpx;
+}
+
+.app-textarea {
+  min-height: 180rpx;
+  padding: 22rpx 26rpx;
+  line-height: 1.6;
+}
+
+.app-section {
+  margin-top: $section-gap;
+}
+
+.app-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+
+.app-section-title {
+  display: block;
+  font-size: 30rpx;
+  line-height: 1.3;
+  font-weight: 720;
+  color: $text-main;
+}
+
+.app-section-note {
+  font-size: 23rpx;
+  color: $text-muted;
+}
+
+.app-empty {
+  padding: 130rpx 24rpx;
+  text-align: center;
+}
+
+.app-empty-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: $text-main;
+}
+
+.app-empty-desc {
+  display: block;
+  margin-top: 14rpx;
+  font-size: 25rpx;
+  line-height: 1.55;
+  color: $text-secondary;
+}
+
+/* Compatibility aliases used by older pages. */
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+}
+
+.app-brand-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.app-brand-mark {
+  width: 76rpx;
+  height: 76rpx;
+  border-radius: 24rpx;
+  background: $primary;
+  color: $text-inverse;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34rpx;
+  font-weight: 800;
+}
+
+.app-brand-title {
+  display: block;
+  font-size: 42rpx;
+  line-height: 1.2;
+  font-weight: 780;
+  color: $text-main;
+}
+
+.app-brand-desc {
+  display: block;
+  margin-top: 8rpx;
+  font-size: 25rpx;
+  line-height: 1.45;
+  color: $text-secondary;
+}
+
+.app-hero-action {
+  margin-top: 28rpx;
+  padding: 34rpx 32rpx;
+  border-radius: $radius-xl;
+  background: $primary;
+  color: $text-inverse;
+  box-shadow: $shadow-soft;
+}
+
+.app-hero-title {
+  display: block;
+  font-size: 38rpx;
+  line-height: 1.25;
+  font-weight: 780;
+  color: $text-inverse;
+}
+
+.app-hero-desc {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 25rpx;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.app-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14rpx;
+}
+
+.app-metric-item {
+  min-width: 0;
+  padding: 24rpx 20rpx;
+  border: 1rpx solid $border;
+  border-radius: $radius-lg;
+  background: $surface;
+}
+
+.app-tag,
+.app-tag-primary {
+  @extend .app-chip;
+}
+
+.app-tag-gold {
+  @extend .app-chip;
+  @extend .app-chip-gold;
+}
+
+.app-tag-danger {
+  @extend .app-chip;
+  @extend .app-chip-danger;
+}
+
+.app-tag-warning {
+  @extend .app-chip;
+  background: #FFF4D6;
+  color: $warning;
+}
+
+.app-panel,
+.app-report {
+  @extend .app-surface-card;
+}
+
+.app-panel-soft {
+  padding: 28rpx;
+  border: 1rpx solid $border;
+  border-radius: $radius-lg;
+  background: $surface-soft;
+}
+
+.app-report-text {
+  display: block;
+  font-size: 27rpx;
+  line-height: 1.8;
+  color: $text-main;
+}
