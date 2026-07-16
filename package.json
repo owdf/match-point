@@ -7,7 +7,7 @@
     "dev:h5": "cross-env UNI_INPUT_DIR=. uni",
     "build:h5": "cross-env UNI_INPUT_DIR=. uni build -p h5",
     "verify:build": "node scripts/verify-build.mjs",
-    "test": "node --test --test-isolation=none",
+    "test": "node test/all.test.js",
     "check": "npm test && npm run build:h5 && npm run verify:build"
   },
   "dependencies": {
