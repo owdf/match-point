@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm audit --omit=dev --audit-level=high
+      - run: npm test
+      - run: npm run build:h5
+        env:
+          VITE_BASE_PATH: /match-point/
+      - run: npm run verify:build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: match-point-pwa
+          path: dist/build/h5
+          if-no-files-found: error

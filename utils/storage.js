@@ -6,7 +6,7 @@ export const RECORD_KEY = 'skill_training_records'
 export const CURRENT_TRAINING_KEY = 'skill_current_training'
 export const PRECHECK_KEY = 'MATCH_POINT_PRECHECK'
 export const SETTINGS_KEY = 'MATCH_POINT_SETTINGS'
-export const BACKUP_VERSION = '1.3.0'
+export const BACKUP_VERSION = '1.4.0'
 
 function createId(prefix) {
   return `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2, 8)}`
@@ -95,11 +95,12 @@ function createScoreItems() {
 }
 
 function normalizeScoreItem(item = {}, index = 0) {
+  const maxScore = Math.max(0, Number(item.maxScore) || defaultScoreItems[index]?.[1] || 0)
   return {
     id: item.id || `score-${index + 1}`,
     name: item.name || defaultScoreItems[index]?.[0] || '评分项',
-    maxScore: Number(item.maxScore) || defaultScoreItems[index]?.[1] || 0,
-    score: Math.max(0, Number(item.score) || 0),
+    maxScore,
+    score: Math.min(maxScore, Math.max(0, Number(item.score) || 0)),
     reasons: Array.isArray(item.reasons) ? item.reasons.filter(Boolean) : []
   }
 }
@@ -157,6 +158,8 @@ function normalizeTrainingRecord(record = {}) {
   const usedMilliseconds = Math.max(0, Math.floor(Number(record.usedMilliseconds) || 0))
   const usedSeconds = Math.max(0, Math.floor(Number(record.usedSeconds) || (usedMilliseconds ? Math.floor(usedMilliseconds / 1000) : 0)))
 
+  const totalScore = Math.min(100, Math.max(0, Number(record.totalScore) || 0))
+
   return {
     ...clone(record),
     id: record.id || createId('record'),
@@ -174,8 +177,8 @@ function normalizeTrainingRecord(record = {}) {
     markers: Array.isArray(record.markers) ? record.markers.map(normalizeMarker) : [],
     stageDeviations: computedStageDeviations,
     scores: Array.isArray(record.scores) ? record.scores.map(normalizeScoreItem) : [],
-    totalScore: Number(record.totalScore) || 0,
-    level: record.level || getScoreLevel(record.totalScore),
+    totalScore,
+    level: getScoreLevel(totalScore),
     notes: record.notes || '',
     nextPlan: record.nextPlan || '',
     report: record.report || '',
@@ -185,13 +188,16 @@ function normalizeTrainingRecord(record = {}) {
 }
 
 function normalizeTemplate(template = {}) {
+  const totalMinutes = Math.max(1, Number(template.totalMinutes) || 60)
+  const targetMinutes = Math.min(totalMinutes, Math.max(1, Number(template.targetMinutes) || totalMinutes))
+  const normalizedStages = Array.isArray(template.stages) ? template.stages.map(normalizeStage) : []
   return {
     ...clone(template),
     id: template.id || createId('template'),
     name: template.name || '未命名模板',
-    totalMinutes: Number(template.totalMinutes) || 60,
-    targetMinutes: Number(template.targetMinutes) || Number(template.totalMinutes) || 60,
-    stages: Array.isArray(template.stages) ? template.stages.map(normalizeStage) : [],
+    totalMinutes,
+    targetMinutes,
+    stages: normalizedStages.length ? normalizedStages : [{ id: createId('stage'), name: '训练', minutes: totalMinutes }],
     checklist: Array.isArray(template.checklist) && template.checklist.length ? clone(template.checklist) : createChecklist(),
     scoreItems: Array.isArray(template.scoreItems) && template.scoreItems.length ? template.scoreItems.map(normalizeScoreItem) : createScoreItems(),
     isDefault: Boolean(template.isDefault),
@@ -478,12 +484,12 @@ export function importLocalBackupData(input) {
   writeStorage(TEMPLATE_KEY, templates)
   writeStorage(RECORD_KEY, records)
 
-  if (data.precheck) savePrecheckState(data.precheck)
-  if (data.settings && typeof data.settings === 'object') {
-    const { currentTraining, ...settings } = data.settings
-    saveSettings(settings)
-    if (currentTraining) saveCurrentTraining(currentTraining)
-  }
+  savePrecheckState(data.precheck || getDefaultPrecheckState())
+  const backupSettings = data.settings && typeof data.settings === 'object' ? data.settings : {}
+  const { currentTraining, ...settings } = backupSettings
+  saveSettings(settings)
+  if (currentTraining) saveCurrentTraining(currentTraining)
+  else clearCurrentTraining()
 
   initDefaultTemplates()
 

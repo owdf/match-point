@@ -2,7 +2,11 @@
 node_modules/
 
 # Build output
-unpackage/
+unpackage/*
+!unpackage/res/
+!unpackage/res/icons/
+!unpackage/res/icons/*.png
+dist/
 *.apk
 
 # IDE

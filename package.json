@@ -1,0 +1,36 @@
+{
+  "name": "match-point",
+  "version": "1.4.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:h5": "cross-env UNI_INPUT_DIR=. uni",
+    "build:h5": "cross-env UNI_INPUT_DIR=. uni build -p h5",
+    "verify:build": "node scripts/verify-build.mjs",
+    "test": "node test/all.test.js",
+    "check": "npm test && npm run build:h5 && npm run verify:build"
+  },
+  "dependencies": {
+    "vue": "3.4.21",
+    "vue-i18n": "11.4.6"
+  },
+  "devDependencies": {
+    "@dcloudio/types": "3.4.31",
+    "@dcloudio/uni-app": "3.0.0-alpha-5020120260710001",
+    "@dcloudio/uni-components": "3.0.0-alpha-5020120260710001",
+    "@dcloudio/uni-h5": "3.0.0-alpha-5020120260710001",
+    "@dcloudio/vite-plugin-uni": "3.0.0-alpha-5020120260710001",
+    "@vue/server-renderer": "3.4.21",
+    "cross-env": "10.1.0",
+    "sass": "1.89.2",
+    "vite": "5.2.8"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "overrides": {
+    "@intlify/core-base": "9.14.5",
+    "@intlify/vue-devtools": "9.14.5",
+    "postcss": "8.5.19"
+  }
+}

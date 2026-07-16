@@ -1,0 +1,20 @@
+{
+  "name": "Match Point 赛点",
+  "short_name": "赛点",
+  "description": "面向技能比赛训练的离线计时、标记、评分与复盘工具",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#F7F4EA",
+  "theme_color": "#0F5C5C",
+  "icons": [
+    {
+      "src": "./icon.png",
+      "sizes": "1254x1254",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,5 +1,13 @@
 import App from './App'
 
+// #ifdef H5
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register(`${import.meta.env.BASE_URL}sw.js`).catch(() => {})
+  })
+}
+// #endif
+
 // #ifndef VUE3
 import Vue from 'vue'
 import './uni.promisify.adaptor'
